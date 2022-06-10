@@ -45,10 +45,11 @@ $ sudo apt-get install xterm
 ```bash
 $ sudo apt-get install ros-galactic-teleop-twist-keyboard
 ```
-* install `Gazebo` if it has not been intalled already by typing on terminal:
+* install Gazebo if it has not been intalled already by typing on terminal:
 ```bash
 $ curl -sSL http://get.gazebosim.org | sh
 ```
+After downloading all the required packages, if something is still missing, go check the [linked page](https://automaticaddison.com/how-to-create-an-object-following-robot-ros-2-navigation/). 
 
 How to Run
 -------------
