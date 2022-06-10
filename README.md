@@ -1,4 +1,4 @@
 SOFAR_Assignment
 =================
 
-Repository regarding the Assignment of Software Architecture for Robotics
+Developers: [Emanuele Rambaldi](https://github.com/LaRambla20) [Luca Mosetti](https://github.com/mose247) [Francesco Ferrazzi](https://github.com/FraFerrazzi).
