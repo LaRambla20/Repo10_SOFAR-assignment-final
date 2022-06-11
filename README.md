@@ -3,10 +3,10 @@ SOFAR_Assignment
 
 Developers: [Emanuele Rambaldi](https://github.com/LaRambla20), [Luca Mosetti](https://github.com/mose247) and [Francesco Ferrazzi](https://github.com/FraFerrazzi).
 
-This is the assignment of the course Software Architecture for Robotics, provided by [Università Degli Studi di Genova](https://unige.it/it/), Robotics Engineering degree.
+The repository contains a possible solution to the final assignment of Software Architecture for Robotics course, hold at the MSc degree in Robotics Engineerg at the [University of Genova](https://unige.it/it/).
 
 The goal of this assignment is to build a simulation with Ros2 in which a robot follows a moving target at a fixed distance.
-The robots used in the simulation are two four wheeled, differential drive, mobile robots. 
+The robots used in the simulation are two differential drive mobile robots. 
 
 One robot is the "leader" which is driven manually by the `teleop_twist_keyboard` node. The other one is the "follower" which uses some features of [Nav2](https://navigation.ros.org/) to keep a fixed distance from the "leader".
 
@@ -56,7 +56,7 @@ To run the program is sufficient to clone the [GitHub](https://github.com/FraFer
 ```bash
 $ git clone https://github.com/FraFerrazzi/SOFAR_Assignment.git
 ```
-Be careful to clone the repository into a ros like workspace and build the project using the command:
+Be careful to clone the repository into a ros-like workspace and build the project using the command:
 ```bash
 $ colcon build
 ```
@@ -66,7 +66,7 @@ Before running the project it is necessary to change some absolute paths, which 
 * inside the `param` folder, in `nav2_robot1_params.yaml` at line 64.
 * inside the `rviz` folder, in `nav2_config.rviz` at line 293.
 * inside the `rviz` folder, in `nav2_config_multiple_robots.rviz` at line 293.
-This absolute paths must be changed with your own ones depending on where you place the project in your architecture.
+This absolute paths must be changed with your own ones depending on where you placed the project in your filesystem.
 
 In the root folder of the Ros2 workspace, RUN THE PROGRAM by typing on terminal:
 ```bash
