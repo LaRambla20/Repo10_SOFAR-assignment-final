@@ -1,12 +1,11 @@
 SOFAR_Assignment
 =================
 
-Developers: [Emanuele Rambaldi](https://github.com/LaRambla20), [Luca Mosetti](https://github.com/mose247) and [Francesco Ferrazzi](https://github.com/FraFerrazzi).
+Developed by [Emanuele Rambaldi](https://github.com/LaRambla20), [Luca Mosetti](https://github.com/mose247) and [Francesco Ferrazzi](https://github.com/FraFerrazzi), June 2022.
 
 The repository contains a possible solution to the final assignment of Software Architecture for Robotics course, hold at the MSc degree in Robotics Engineerg at the [University of Genova](https://unige.it/it/).
 
-The goal of this assignment is to build a simulation with Ros2 in which a robot follows a moving target at a fixed distance.
-The robots used in the simulation are two differential drive mobile robots. 
+The goal of the project is to implement a simulation using ROS2 and the Nav2 stack to make a robot following a moving target at a fixed distance. The robots used in the simulation are two differential drive mobile robots. 
 
 One robot is the "leader" which is driven manually by the `teleop_twist_keyboard` node. The other one is the "follower" which uses some features of [Nav2](https://navigation.ros.org/) to keep a fixed distance from the "leader".
 
