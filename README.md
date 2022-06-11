@@ -5,10 +5,10 @@ Developers: [Emanuele Rambaldi](https://github.com/LaRambla20), [Luca Mosetti](h
 
 This is the assignment of the course Software Architecture for Robotics, provided by [Università Degli Studi di Genova](https://unige.it/it/), Robotics Engineering degree.
 
-The goal of this assignment is to build a simulation with ROS2 in which a robot follows a moving target at a fixed distance.
+The goal of this assignment is to build a simulation with Ros2 in which a robot follows a moving target at a fixed distance.
 The robots used in the simulation are two four wheeled, differential drive, mobile robots. 
 
-One robot is the "leader" which is driven manually by the `teleop_twist_keyboard` node. The other one is the robot "follower" which uses some features further explained of [Nav2](https://navigation.ros.org/) to keep a fixed distance from the robot "leader".
+One robot is the "leader" which is driven manually by the `teleop_twist_keyboard` node. The other one is the "follower" which uses some features of [Nav2](https://navigation.ros.org/) to keep a fixed distance from the "leader".
 
 The simulation is developed using [Gazebo](https://gazebosim.org/home) as simulation environment.
 
@@ -27,9 +27,7 @@ Table of Contents
 Installations Required
 ----------------------
 
-In this section all the required installations to run the project are reported. 
-
-The simulator requires a [ROS2 Galactic](https://docs.ros.org/en/galactic/Installation.html) installation and the following packages if they are not already installed:
+The project requires a [Ros2 Galactic](https://docs.ros.org/en/galactic/Installation.html) installation and the following packages if they are not already installed:
 
 * for Ubuntu 20.04, install Nav2 by typing on terminal:
 ```bash
@@ -64,7 +62,13 @@ $ colcon build
 ```
 The command must be launched in the root folder of the workspace.
 
-Also in the root folder of the workspace, RUN THE PROGRAM by typing on terminal:
+Before running the project it is necessary to change some absolute paths, which are:
+* inside the `param` folder, in `nav2_robot1_params.yaml` at line 64.
+* inside the `rviz` folder, in `nav2_config.rviz` at line 293.
+* inside the `rviz` folder, in `nav2_config_multiple_robots.rviz` at line 293.
+This absolute paths must be changed with your own ones depending on where you place the project in your architecture.
+
+In the root folder of the Ros2 workspace, RUN THE PROGRAM by typing on terminal:
 ```bash
 $ ros2 launch object_following_robot multi_robot_simulation_launch.py
 ```
