@@ -5,9 +5,7 @@ Developed by [Emanuele Rambaldi](https://github.com/LaRambla20), [Luca Mosetti](
 
 The repository contains a possible solution to the final assignment of Software Architecture for Robotics course, hold at the MSc degree in Robotics Engineerg at the [University of Genova](https://unige.it/it/).
 
-The goal of the project is to implement a simulation using ROS2 and the Nav2 stack to make a robot following a moving target at a fixed distance. The robots used in the simulation are two differential drive mobile robots. 
-
-One robot is the "leader" which is driven manually by the `teleop_twist_keyboard` node. The other one is the "follower" which uses some features of [Nav2](https://navigation.ros.org/) to keep a fixed distance from the "leader".
+The goal of the project is to implement a simulation using ROS2 and the Nav2 navigation stack to make a robot following a moving target at a fixed distance. In particular, it has been decided to use two differential drive robots. The first behaves as the "follower", while the second as the "leader".
 
 The simulation is developed using [Gazebo](https://gazebosim.org/home) as simulation environment.
 
@@ -21,6 +19,7 @@ Table of Contents
  * [Installations Required](#installations-required)
  * [How to Run](#how-to-run)
  * [Documentation](#documentation)
+ * [Sources](#sources)
  
  
 Installations Required
@@ -81,4 +80,18 @@ Documentation
 -------------
 
 In synthesis, the general software architecture is the following:
-[SOFAR_Assignment_URL.pdf](https://github.com/FraFerrazzi/SOFAR_Assignment/files/8886130/SOFAR_Assignment_URL.pdf)
+<img width="1532" alt="URL_diagram" src="https://user-images.githubusercontent.com/91314392/173240621-f51c2a4e-89b0-47fa-9798-9053395f240c.png">
+
+The leading robot is user-guided via the `teleop_twist_keyboard` node, which publishes the desired Twist on the `/robot2/cmd_vel` topic. 
+
+Instead, the following robot navigates autonomusly in the environment using the Nav2 navigation stack. Specifically, the navigation behavior is defined by a [behavior tree](https://navigation.ros.org/behavior_trees/index.html) aimed at following a dynamic point keeping a fixed distance.
+
+As goal, the navigation stack takes the position and orientation of the leader with respect to the map frame, which is published on `/robot1/goal_pose`. To retrive such information, the node `robot2_pose_publisher` subcribes to the tobic `/robot2/tf` to compute the transformation between the map frame and the footprint of the second robot. 
+
+Sources
+--------
+
+The project has been developed starting from a working example published at the following link: [How To Create an Object Following Robot – ROS 2 Navigation](https://automaticaddison.com/how-to-create-an-object-following-robot-ros-2-navigation/).
+
+Some modifications has been made to achieve the wanted result, such as:
+Scrivi emmaaaaaaaaaaaaaa
