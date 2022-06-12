@@ -26,7 +26,7 @@ Table of Contents
 Installations Required
 ----------------------
 
-The project requires a [Ros2 Galactic](https://docs.ros.org/en/galactic/Installation.html) installation and the following packages if they are not already installed:
+The project requires a [ROS2 Galactic](https://docs.ros.org/en/galactic/Installation.html) installation and the following packages if they are not already installed:
 
 * for Ubuntu 20.04, install Nav2 by typing on terminal:
 ```bash
@@ -51,6 +51,11 @@ After downloading all the required packages, if something is still missing, go c
 How to Run
 -------------
 
+First of all it is neccessary to modify the `.bashrc` file in the root folder of your filesystem, by adding the following lines:
+* export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:<absolute path to your ROS2 workspace>/src/object_following_robot/models/
+* source /usr/share/gazebo/setup.sh (Source Gazebo)
+* source /opt/ros/galactic/setup.bash (Source ROS2 Galactic)
+
 To run the program is sufficient to clone the [GitHub](https://github.com/FraFerrazzi/SOFAR_Assignment) repository using the following command:
 ```bash
 $ git clone https://github.com/FraFerrazzi/SOFAR_Assignment.git
@@ -74,4 +79,5 @@ $ ros2 launch object_following_robot multi_robot_simulation_launch.py
 
 Documentation
 -------------
+
 
