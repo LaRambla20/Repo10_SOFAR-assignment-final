@@ -80,4 +80,5 @@ $ ros2 launch object_following_robot multi_robot_simulation_launch.py
 Documentation
 -------------
 
-
+In synthesis, the general software architecture is the following:
+[SOFAR_Assignment_URL.pdf](https://github.com/FraFerrazzi/SOFAR_Assignment/files/8886130/SOFAR_Assignment_URL.pdf)
