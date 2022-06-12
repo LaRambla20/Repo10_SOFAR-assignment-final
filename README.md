@@ -10,7 +10,9 @@ The goal of the project is to implement a simulation using ROS2 and the Nav2 nav
 The simulation is developed using [Gazebo](https://gazebosim.org/home) as simulation environment.
 
 The result is reported in the brief video below:
-![ezgif-5-8ca99356ea](https://user-images.githubusercontent.com/91455159/173257588-875cc062-9be2-42bc-b22e-a1dc15d2de29.gif)
+
+![ezgif-5-ee980ba315](https://user-images.githubusercontent.com/91455159/173257879-858cf26b-eed0-4dc6-ab5d-bf962255917e.gif)
+
 
 Table of Contents
 ----------------------
