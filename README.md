@@ -1,4 +1,13 @@
-SOFAR_Assignment
+### Table of Contents
+
+- [Assignment description](#assignment_description)
+  * [Table of Contents](#table-of-contents)
+  * [Installations Required](#installations-required)
+  * [How to Run](#how-to-run)
+  * [Documentation](#documentation)
+  * [Sources](#sources)
+
+Assignment description
 =================
 
 Developed by [Emanuele Rambaldi](https://github.com/LaRambla20), [Luca Mosetti](https://github.com/mose247) and [Francesco Ferrazzi](https://github.com/FraFerrazzi), June 2022.
