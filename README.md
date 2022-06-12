@@ -21,17 +21,6 @@ The result is reported in the brief video below:
 
 ![ezgif-5-ee980ba315](https://user-images.githubusercontent.com/91455159/173257879-858cf26b-eed0-4dc6-ab5d-bf962255917e.gif)
 
-
-Table of Contents
-----------------------
-
-- [SOFAR_Assignment](#sofar_assignment)
- * [Table of Contents](#table-of-contents)
- * [Installations Required](#installations-required)
- * [How to Run](#how-to-run)
- * [Documentation](#documentation)
- * [Sources](#sources)
- 
  
 Installations Required
 ----------------------
