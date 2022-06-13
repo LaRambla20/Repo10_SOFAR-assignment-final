@@ -92,7 +92,10 @@ As goal, the navigation stack takes the position and orientation of the leader w
 Sources
 --------
 
-The project has been developed starting from a working example published at the following link: [How To Create an Object Following Robot – ROS 2 Navigation](https://automaticaddison.com/how-to-create-an-object-following-robot-ros-2-navigation/).
+In order to develop the solution to the assignment the two following pre-built packages were used:
+* `two_wheeled_robot` ([package link](https://drive.google.com/drive/folders/1JP12kp4JZ6SM0E8zhxI99ERBMf3qL6QW) - author: Addison Sears-Collins): package aimed at exploring the potentialities of the Nav2 navigation stack, by using a simple differential robot spawned in various worlds
+* `nav2_bringup` ([package link](https://github.com/ros-planning/navigation2/tree/main/nav2_bringup) - author: Nav2 developers): package aimed at offering a bringup system for Nav2 applications
 
-Some modifications has been made to achieve the wanted result, such as:
-Scrivi emmaaaaaaaaaaaaaa
+Specifically, starting from these two packages, the steps to obtain the final result were the following:
+* create a new ROS2 package
+* consider the 
