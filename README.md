@@ -72,7 +72,7 @@ Before running the project make sure to modify the absolute paths specified in t
 
 These absolute paths must be changed with your own ones depending on where you placed the project in your filesystem.
 
-In the root folder of the Ros2 workspace, RUN THE PROGRAM by typing on terminal:
+Finally, to run the program simply use the following command:
 ```bash
 $ ros2 launch object_following_robot multi_robot_simulation_launch.py
 ```
