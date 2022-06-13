@@ -69,7 +69,7 @@ Before running the project make sure to modify the absolute path specified in th
 * inside `./param/nav2_robot1_params.yaml`, at line 64.
 * inside `./rviz/nav2_config.rviz`, at line 293.
 * inside `./rviz/nav2_config_multiple_robots.rviz`, at line 293.
-* 
+
 This absolute paths must be changed with your own ones depending on where you placed the project in your filesystem.
 
 In the root folder of the Ros2 workspace, RUN THE PROGRAM by typing on terminal:
