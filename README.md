@@ -72,7 +72,7 @@ Before running the project make sure to modify the absolute paths specified in t
 
 These absolute paths must be changed with your own ones depending on where you placed the project in your filesystem.
 
-Finally, to run the program simply use the following command:
+In the root folder of the Ros2 workspace, RUN THE PROGRAM by typing on terminal:
 ```bash
 $ ros2 launch object_following_robot multi_robot_simulation_launch.py
 ```
@@ -98,11 +98,38 @@ In order to develop the solution to the assignment the two following pre-built p
 
 Specifically, starting from these two packages, the steps to obtain the final result were the following:
 * create a new ROS2 package
-* export the house_world simulation implemented in the `two_wheeled_robot` package to the newly created package. In particular, the following elements were taken:
+* export the house_world simulation implemented in the `two_wheeled_robot` package to the newly-created package. In particular, the following elements were taken:
   * `house_world.pgm` and `house_world.yaml` from the folder `maps/house_world`
   * `nav2_params.yaml` from the folder `params/house_world`
   * `nav2_config.rviz` from the folder `rviz/house_world`
   * `two_wheeled_robot.urdf` from the folder `urdf`
   * `house.world` from the folder `worlds`
   * all the models of the objects spawned in the world from the folder `models` (differential robot model included)
-* export the multi_turtlebot3 simulation implemented in the `nav2_bringup` package to the newly created package. In particular, all the launch files contained in the folder `launch` were taken
+* export the multi_turtlebot3 simulation implemented in the `nav2_bringup` package to the newly-created package. In particular, all the launch files contained in the folder `launch` were taken
+* include in the `params` folder of the newly-created package the dynamic object following behaviour tree (which can be found at the following web page: [dynamic object following behaviour tree](https://navigation.ros.org/tutorials/docs/navigation2_dynamic_point_following.html))
+* duplicate the `nav2_params.yaml` so as to have two different parameters files (`nav2_robot1_params.yaml` and `nav2_robot2_params.yaml`), one for each robot
+* modify the two parameter files as follows:
+  * `nav2_robot1_params.yaml` (contained in the `params` folder of the newly-created package):  
+    * substitute 'topic: /scan' with 'topic: /robot1/scan'
+    * comment out 'initial_pose: ...' and add 'initial_pose.x: 0.0', 'initial_pose.y: 0.0', 'initial_pose.z: 0.25', 'initial_pose.yaw: 0.0'
+    * set 'default_nav_to_pose_bt_xml' to the absolute path to the dynamic object following behaviour tree
+    * set 'enable_groot_monitoring' to False (in order to avoid the failure of the dynamic object following behaviour tree)
+  * `nav2_robot2_params.yaml` (contained in the `params` folder of the newly-created package): 
+    * substitute 'topic: /scan' with 'topic: /robot2/scan'
+    * remove 'initial_pose: ...' and add 'initial_pose.x: 0.0', 'initial_pose.y: 1.0', 'initial_pose.z: 0.25', 'initial_pose.yaw: 0.0'
+    * set 'enable_groot_monitoring' to False (in order to avoid the failure of the default behaviour tree)
+* modify the rviz configuration file so as to allow for the handling of multiple robots:
+  * `nav2_config_multiple_robots.rviz` (contained in the `rviz` folder of the newly-created package):
+    * put '<robot_namespace>/' in front of the 'Value' parameter of each 'Topic' (e.g. Value: local_plan -> Value: <robot_namespace>/local_plan)
+    * set the 'Description File' parameter to the absolute path to the urdf file of the robot
+* modify the world description file so as to avoid spawning twice the robots in the environment:
+  * `house.world` (contained in the `worlds` folder of the newly-created package):
+    * remove the last lines of the files: lines that include the sdf model of the robot in the environment (this task is already carried out by the launch file) 
+* modify the sdf model of the robot so as to publish the coordinate transform from odom to base_footprint by means of the default amcl localization algorithm:
+  * `model.sdf` (contained in the `models/two_wheeled_robot_description` folder of the newly-created package):
+    * set the 'publish_odom_tf' parameter to 'true'
+* create the `robot2_pose_publisher` node in order to make the robot1 follow the robot2
+* modify the launch files so as to spawn the two simple differential robots in the house world and to launch all the necessary nodes for accomplishing the assignment goal:
+ * `multi_robot_simulation_launch.py` (contained in the `launch` folder of the newly-created package):
+ * `robot_gazebo_spawn_launch.py` (contained in the `launch` folder of the newly-created package):
+ * `single_robot_simulation_launch.py` (contained in the `launch` folder of the newly-created package):
