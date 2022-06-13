@@ -94,8 +94,15 @@ Sources
 
 In order to develop the solution to the assignment the two following pre-built packages were used:
 * `two_wheeled_robot` ([package link](https://drive.google.com/drive/folders/1JP12kp4JZ6SM0E8zhxI99ERBMf3qL6QW) - author: Addison Sears-Collins): package aimed at exploring the potentialities of the Nav2 navigation stack, by using a simple differential robot spawned in various worlds
-* `nav2_bringup` ([package link](https://github.com/ros-planning/navigation2/tree/main/nav2_bringup) - author: Nav2 developers): package aimed at offering a bringup system for Nav2 applications
+* `nav2_bringup` ([package link](https://github.com/ros-planning/navigation2/tree/main/nav2_bringup) - author: Nav2 developers): package aimed at offering a bringup system for the Nav2 navigation stack applications
 
 Specifically, starting from these two packages, the steps to obtain the final result were the following:
 * create a new ROS2 package
-* consider the 
+* export the house_world simulation implemented in the `two_wheeled_robot` package to the newly created package. In particular, the following elements were taken:
+  * `house_world.pgm` and `house_world.yaml` from the folder `maps/house_world`
+  * `nav2_params.yaml` from the folder `params/house_world`
+  * `nav2_config.rviz` from the folder `rviz/house_world`
+  * `two_wheeled_robot.urdf` from the folder `urdf`
+  * `house.world` from the folder `worlds`
+  * all the models of the objects spawned in the world from the folder `models` (differential robot model included)
+* export the multi_turtlebot3 simulation implemented in the `nav2_bringup` package to the newly created package. In particular, all the launch files contained in the folder `launch` were taken
