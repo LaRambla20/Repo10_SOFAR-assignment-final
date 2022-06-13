@@ -1,6 +1,6 @@
 ### Table of Contents
 
-- [Assignment description](#assignment_description)
+- [Assignment description](#assignment-description)
   * [Installations Required](#installations-required)
   * [How to Run](#how-to-run)
   * [Documentation](#documentation)
