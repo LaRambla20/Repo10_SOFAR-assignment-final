@@ -108,7 +108,7 @@ Specifically, starting from these two packages, the steps to obtain the final re
 * export the multi_turtlebot3 simulation implemented in the `nav2_bringup` package to the newly-created package. In particular, all the launch files contained in the folder `launch` were taken
 * include in the `params` folder of the newly-created package the dynamic object following behaviour tree (which can be found at the following web page: [dynamic object following behaviour tree](https://navigation.ros.org/tutorials/docs/navigation2_dynamic_point_following.html))
 * duplicate the `nav2_params.yaml` so as to have two different parameters files (`nav2_robot1_params.yaml` and `nav2_robot2_params.yaml`), one for each robot
-* modify the two parameter files as follows:
+* modify the two parameters files as follows:
   * `nav2_robot1_params.yaml` (contained in the `params` folder of the newly-created package):  
     * substitute 'topic: /scan' with 'topic: /robot1/scan'
     * comment out 'initial_pose: ...' and add 'initial_pose.x: 0.0', 'initial_pose.y: 0.0', 'initial_pose.z: 0.25', 'initial_pose.yaw: 0.0'
@@ -130,6 +130,16 @@ Specifically, starting from these two packages, the steps to obtain the final re
     * set the 'publish_odom_tf' parameter to 'true'
 * create the `robot2_pose_publisher` node in order to make the robot1 follow the robot2
 * modify the launch files so as to spawn the two simple differential robots in the house world and to launch all the necessary nodes for accomplishing the assignment goal:
- * `multi_robot_simulation_launch.py` (contained in the `launch` folder of the newly-created package):
- * `robot_gazebo_spawn_launch.py` (contained in the `launch` folder of the newly-created package):
- * `single_robot_simulation_launch.py` (contained in the `launch` folder of the newly-created package):
+  * `multi_robot_simulation_launch.py` (contained in the `launch` folder of the newly-created package):
+    * define the desired initial pose of the two robots
+    * change the declarations of the launch arguments in order to have them pointed at the aforementioned files of the newly-created package (map files, parameters files, rviz configuration file, world file)
+    * launch the `teleop_twist_keyboard` node in a x-term terminal
+    * launch the `robot2_pose_publisher` node in a x-term terminal
+    * remove the line related to the 'turtlebot_type' launch argument from the launch description of the `robot_gazebo_spawn_launch.py`
+  * `robot_gazebo_spawn_launch.py` (contained in the `launch` folder of the newly-created package):
+    * define the path to the sdf file of the robot
+    * add the 'sdf' launch argument to the launch of the `nav2_gazebo_spawner` node, specifying the just-mentioned path
+    * remove the line related to the 'turtlebot_type' launch argument in the launch of the `nav2_gazebo_spawner` node
+  * `single_robot_simulation_launch.py` (contained in the `launch` folder of the newly-created package): 
+    * define the path to the urdf file of the robot
+    * pass the just-mentioned path as the 'robot_description' parameter in the launch of the `robot_state_publisher` node
